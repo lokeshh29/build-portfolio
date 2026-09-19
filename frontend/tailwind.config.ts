@@ -37,8 +37,10 @@ const config: Config = {
       },
       fontFamily: {
         display: ["Syne", "sans-serif"],
-        body: ["DM Sans", "sans-serif"],
-        sans: ["DM Sans", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
+        jakarta: ["Plus Jakarta Sans", "sans-serif"],
+        body: ["Plus Jakarta Sans", "DM Sans", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "DM Sans", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       animation: {

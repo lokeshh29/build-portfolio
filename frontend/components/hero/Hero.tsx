@@ -65,7 +65,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="mt-6 text-lg sm:text-xl lg:text-2xl text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl font-normal font-body"
+            className="mt-6 font-display text-xl sm:text-2xl lg:text-[26px] font-medium text-neutral-700 dark:text-neutral-200 tracking-tight leading-relaxed max-w-3xl"
           >
             I design intelligent systems that combine LLMs, retrieval, agents, APIs, and cloud infrastructure.
           </motion.p>
