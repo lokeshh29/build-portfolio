@@ -25,17 +25,8 @@ class ChatRequest(BaseModel):
     )
 
 
-class SourceCitation(BaseModel):
-    title: str = Field(..., description="Source identifier (e.g., 'AssistHub', 'Invisibl Cloud')")
-    category: str = Field(..., description="Category: 'project', 'experience', 'skills', 'education', 'achievement'")
-
-
 class ChatResponse(BaseModel):
     answer: str = Field(..., description="Grounded AI answer to user inquiry.")
-    sources: List[SourceCitation] = Field(
-        default_factory=list,
-        description="Referenced sources extracted from the answer."
-    )
     model_used: str = Field(..., description="AI model that generated the response.")
     suggested_questions: Optional[List[str]] = Field(
         default=None,
