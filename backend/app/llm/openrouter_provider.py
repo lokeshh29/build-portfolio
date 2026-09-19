@@ -10,10 +10,20 @@ from app.llm.base import LLMProvider
 logger = logging.getLogger("openrouter-provider")
 
 
+FREE_FALLBACK_MODELS = [
+    "google/gemma-4-31b-it:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "meta-llama/llama-3.1-8b-instruct:free",
+    "qwen/qwen-2.5-72b-instruct:free",
+    "mistralai/mistral-7b-instruct:free",
+]
+
+
 class OpenRouterProvider(LLMProvider):
     """
-    OpenRouter API provider implementation.
-    Supports standard generation and Server-Sent Events (SSE) streaming.
+    OpenRouter API provider implementation with automatic model failover
+    and resilience against 429 rate limits for free models.
     """
 
     def __init__(self):
@@ -25,7 +35,7 @@ class OpenRouterProvider(LLMProvider):
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:3000",
+            "HTTP-Referer": "https://lokesh-portfolio.vercel.app",
             "X-Title": "Lokesh Kumar R Portfolio",
         }
         return headers
@@ -44,64 +54,54 @@ class OpenRouterProvider(LLMProvider):
             )
 
         target_model = model or self.default_model
-        payload = {
-            "model": target_model,
-            "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-        }
-
+        fallback_chain = list(dict.fromkeys([target_model] + FREE_FALLBACK_MODELS))
         endpoint = f"{self.base_url}/chat/completions"
 
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            try:
-                response = await client.post(
-                    endpoint,
-                    headers=self._get_headers(),
-                    json=payload,
-                )
-            except httpx.TimeoutException:
-                logger.error("Timeout connecting to OpenRouter API")
-                raise HTTPException(
-                    status_code=status.HTTP_504_GATEWAY_TIMEOUT,
-                    detail="AI service request timed out. Please try again.",
-                )
-            except httpx.RequestError as exc:
-                logger.error(f"Network error connecting to OpenRouter: {exc}")
-                raise HTTPException(
-                    status_code=status.HTTP_502_BAD_GATEWAY,
-                    detail=f"Network error while connecting to AI service: {str(exc)}",
-                )
+        last_error = None
 
-        if response.status_code != 200:
-            error_data = {}
-            try:
-                error_data = response.json()
-            except Exception:
-                error_data = {"raw": response.text}
+        for candidate_model in fallback_chain:
+            payload = {
+                "model": candidate_model,
+                "models": fallback_chain,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            }
 
-            logger.error(f"OpenRouter error [{response.status_code}]: {error_data}")
-            err_msg = error_data.get("error", {}).get(
-                "message", "OpenRouter returned an error."
-            )
-            raise HTTPException(
-                status_code=response.status_code
-                if response.status_code in (400, 401, 403, 404, 429)
-                else status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail=f"OpenRouter Provider Error: {err_msg}",
-            )
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                try:
+                    response = await client.post(
+                        endpoint,
+                        headers=self._get_headers(),
+                        json=payload,
+                    )
+                    if response.status_code == 429:
+                        logger.warning(
+                            f"Model {candidate_model} rate-limited (429). Trying fallback model..."
+                        )
+                        last_error = "Rate limit reached"
+                        continue
 
-        data = response.json()
-        try:
-            answer = data["choices"][0]["message"]["content"]
-            model_used = data.get("model", target_model)
-            return answer, model_used
-        except (KeyError, IndexError) as exc:
-            logger.error(f"Malformed response from OpenRouter: {data}")
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Failed to parse response from AI provider.",
-            )
+                    if response.status_code != 200:
+                        logger.warning(
+                            f"Model {candidate_model} returned {response.status_code}. Trying fallback..."
+                        )
+                        continue
+
+                    data = response.json()
+                    answer = data["choices"][0]["message"]["content"]
+                    model_used = data.get("model", candidate_model)
+                    return answer, model_used
+
+                except httpx.RequestError as exc:
+                    logger.error(f"Error calling {candidate_model}: {exc}")
+                    last_error = str(exc)
+                    continue
+
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="All free AI models are currently experiencing high traffic. Please try again in a moment.",
+        )
 
     async def stream_generate(
         self,
@@ -115,36 +115,58 @@ class OpenRouterProvider(LLMProvider):
             return
 
         target_model = model or self.default_model
-        payload = {
-            "model": target_model,
-            "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-            "stream": True,
-        }
-
+        fallback_chain = list(dict.fromkeys([target_model] + FREE_FALLBACK_MODELS))
         endpoint = f"{self.base_url}/chat/completions"
 
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            async with client.stream(
-                "POST", endpoint, headers=self._get_headers(), json=payload
-            ) as response:
-                if response.status_code != 200:
-                    yield f"Error: Provider returned status {response.status_code}"
-                    return
+        for candidate_model in fallback_chain:
+            payload = {
+                "model": candidate_model,
+                "models": fallback_chain,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+                "stream": True,
+            }
 
-                async for line in response.aiter_lines():
-                    if not line:
-                        continue
-                    if line.startswith("data: "):
-                        data_str = line[6:].strip()
-                        if data_str == "[DONE]":
-                            break
-                        try:
-                            chunk = json.loads(data_str)
-                            delta = chunk.get("choices", [{}])[0].get("delta", {})
-                            content = delta.get("content", "")
-                            if content:
-                                yield content
-                        except json.JSONDecodeError:
+            try:
+                async with httpx.AsyncClient(timeout=60.0) as client:
+                    async with client.stream(
+                        "POST", endpoint, headers=self._get_headers(), json=payload
+                    ) as response:
+                        if response.status_code == 429:
+                            logger.warning(
+                                f"Model {candidate_model} returned 429. Trying next free fallback..."
+                            )
                             continue
+
+                        if response.status_code != 200:
+                            logger.warning(
+                                f"Model {candidate_model} returned status {response.status_code}. Trying fallback..."
+                            )
+                            continue
+
+                        streamed_any = False
+                        async for line in response.aiter_lines():
+                            if not line:
+                                continue
+                            if line.startswith("data: "):
+                                data_str = line[6:].strip()
+                                if data_str == "[DONE]":
+                                    break
+                                try:
+                                    chunk = json.loads(data_str)
+                                    delta = chunk.get("choices", [{}])[0].get("delta", {})
+                                    content = delta.get("content", "")
+                                    if content:
+                                        streamed_any = True
+                                        yield content
+                                except json.JSONDecodeError:
+                                    continue
+                        if streamed_any:
+                            return
+
+            except Exception as exc:
+                logger.error(f"Stream error on {candidate_model}: {exc}")
+                continue
+
+        yield "The free AI models are currently experiencing high global traffic. Please try again in a few moments."
