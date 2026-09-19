@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     # OpenRouter API credentials
     OPENROUTER_API_KEY: str = ""
     OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
-    DEFAULT_MODEL: str = "google/gemma-4-31b-it:free"
+    DEFAULT_MODEL: str = "openrouter/free"
     
     # Security & Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 10
