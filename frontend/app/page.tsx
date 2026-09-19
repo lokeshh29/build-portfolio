@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/navbar/Navbar";
 import Hero from "@/components/hero/Hero";
 import About from "@/components/about/About";
@@ -11,17 +11,24 @@ import Achievements from "@/components/achievements/Achievements";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 import ChatWidget from "@/components/ai-chat/ChatWidget";
+import PortfolioLoader from "@/components/loader/PortfolioLoader";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#07090E] text-slate-100 selection:bg-sky-500/20 selection:text-sky-300">
+    <div className="min-h-screen bg-[#07090E] text-slate-100 selection:bg-sky-500/20 selection:text-sky-300 relative">
+      {/* Intro Portfolio Loader */}
+      {isLoading && (
+        <PortfolioLoader onComplete={() => setIsLoading(false)} />
+      )}
+
       {/* Navigation */}
       <Navbar onOpenChat={() => setIsChatOpen(true)} />
 
       {/* Main Content */}
-      <main>
+      <main className={`transition-opacity duration-700 ${isLoading ? "opacity-0" : "opacity-100"}`}>
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <About />
         <Experience />
