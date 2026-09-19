@@ -33,7 +33,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#FAFAF9]/90 dark:bg-[#0A0A0F]/90 backdrop-blur-md border-b border-slate-200 dark:border-purple-500/20 shadow-md dark:shadow-black/20 py-3.5"
+          ? "bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-black/10 dark:border-[#4e3f6e]/30 shadow-md dark:shadow-black/60 py-3.5"
           : "bg-transparent py-5"
       }`}
     >
@@ -41,13 +41,13 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
         {/* Brand with Syne Display font */}
         <a
           href="#"
-          className="group flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors"
+          className="group flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight text-black dark:text-white transition-colors"
         >
-          <div className="h-8 w-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:border-purple-400/60 transition-all">
+          <div className="h-8 w-8 rounded-lg bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 flex items-center justify-center text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:border-[#4e3f6e]/60 transition-all">
             <Terminal className="h-4 w-4" />
           </div>
           <span>
-            Lokesh<span className="text-fuchsia-500">.</span>
+            Lokesh<span className="text-[#4e3f6e]">.</span>
           </span>
         </a>
 
@@ -57,7 +57,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors"
             >
               {link.name}
             </a>
@@ -66,7 +66,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-purple-600 hover:text-purple-700 dark:text-fuchsia-400 dark:hover:text-fuchsia-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[#4e3f6e] hover:text-[#302645] dark:text-[#c4b7d8] dark:hover:text-white transition-colors font-semibold"
           >
             <FileText className="h-3.5 w-3.5" />
             <span>Resume</span>
@@ -79,15 +79,15 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
 
           <button
             onClick={onOpenChat}
-            className="group relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-mono text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/10 border border-purple-300 dark:border-purple-500/30 hover:bg-purple-100 dark:hover:bg-purple-500/20 hover:border-purple-400 transition-all shadow-sm"
+            className="group relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30 hover:bg-[#4e3f6e] hover:text-white transition-all shadow-sm"
           >
-            <Sparkles className="h-3.5 w-3.5 text-purple-500 dark:text-fuchsia-400 group-hover:scale-110 transition-transform" />
+            <Sparkles className="h-3.5 w-3.5 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:text-white group-hover:scale-110 transition-transform" />
             <span>Ask Lokesh AI</span>
           </button>
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-4 py-1.5 rounded-lg font-mono text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700/80 border border-slate-300 dark:border-slate-700 transition-all"
+            className="inline-flex items-center justify-center px-4 py-1.5 rounded-lg font-mono text-xs font-semibold text-white bg-black hover:bg-neutral-800 dark:text-black dark:bg-white dark:hover:bg-neutral-200 transition-all shadow-sm"
           >
             Get in Touch
           </a>
@@ -98,14 +98,14 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
           <ThemeToggle />
           <button
             onClick={onOpenChat}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/10 border border-purple-300 dark:border-purple-500/30"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
           >
-            <Sparkles className="h-3 w-3 text-purple-500 dark:text-fuchsia-400" />
+            <Sparkles className="h-3 w-3 text-[#4e3f6e] dark:text-[#c4b7d8]" />
             <span>AI</span>
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 focus:outline-none"
+            className="p-1.5 rounded-lg text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 focus:outline-none"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -115,13 +115,13 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FAFAF9]/95 dark:bg-[#0A0A0F]/95 backdrop-blur-xl border-b border-slate-200 dark:border-purple-500/20 px-6 py-5 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-black/10 dark:border-[#4e3f6e]/30 px-6 py-5 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200 shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block font-mono text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-fuchsia-400 py-1.5"
+              className="block font-mono text-xs uppercase tracking-wider text-black/80 dark:text-white/80 hover:text-[#4e3f6e] dark:hover:text-[#c4b7d8] py-1.5"
             >
               {link.name}
             </a>
@@ -131,20 +131,20 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple-600 dark:text-fuchsia-400 py-1.5"
+            className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#4e3f6e] dark:text-[#c4b7d8] py-1.5 font-semibold"
           >
-            <FileText className="h-4 w-4 text-purple-500 dark:text-fuchsia-400" />
+            <FileText className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
             <span>Resume (PDF)</span>
           </a>
-          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
+          <div className="pt-3 border-t border-black/10 dark:border-neutral-800 flex flex-col gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenChat?.();
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-mono text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/10 border border-purple-300 dark:border-purple-500/30"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
             >
-              <Sparkles className="h-4 w-4 text-purple-500 dark:text-fuchsia-400" />
+              <Sparkles className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
               <span>Ask Lokesh AI Assistant</span>
             </button>
           </div>

@@ -44,7 +44,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#FAFAF9] text-[#0F0F1A] dark:bg-[#0A0A0F] dark:text-[#F1F5F9] font-body antialiased selection:bg-purple-500/30 selection:text-purple-300 transition-colors duration-500">
+      <body className="min-h-screen bg-white text-black dark:bg-black dark:text-white font-body antialiased selection:bg-[#4e3f6e]/30 selection:text-[#c4b7d8] transition-colors duration-500">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

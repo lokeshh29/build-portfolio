@@ -66,7 +66,7 @@ Role:
 AI/ML Engineer Intern
 
 Duration:
-June 2025 – August 2026
+June 2025 – Present (Current Position)
 
 Total Duration:
 1 year 3 months
@@ -77,19 +77,9 @@ Work arrangement:
 
 Main responsibilities and experience:
 
-- Worked as an AI/ML Engineer developing AI agent-based solutions.
-- Developed LLM-powered workflows.
-- Built Python backend services.
-- Worked on cloud-native applications using AWS.
-- Developed scalable and production-oriented AI solutions.
-- Developed and integrated AI agents.
-- Worked with agentic workflows.
-- Used AWS cloud services to deploy and manage AI applications.
-- Worked on improving application scalability, reliability, and performance.
-- Collaborated directly with clients.
-- Gathered feedback from clients regarding product releases.
-- Translated client requirements and feedback into technical improvements.
-- Delivered iterative technical updates based on evolving business requirements.
+- Working as an AI/ML Engineer for 1 year 3 months (8 months full-time, 7 months part-time), developing AI agent-based solutions, LLM-powered workflows, Python backend services, and cloud-native applications on AWS for scalable, production-ready solutions.
+- Developed and integrated AI agents and agentic workflows, leveraging AWS cloud services to deploy, manage, and optimize AI applications for scalability, reliability, and performance.
+- Collaborated directly with clients to gather feedback on product releases, translate requirements into technical improvements, and deliver iterative updates aligned with evolving business needs.
 
 ==================================================
 PROJECT 1
@@ -382,7 +372,7 @@ If asked:
 "What was Lokesh's role at Invisibl Cloud?"
 
 Answer:
-Lokesh worked as an AI/ML Engineer Intern from June 2025 to August 2026. He worked on AI agents, LLM-powered workflows, Python backend services, AWS-based cloud applications, and collaborated with clients to translate feedback into technical improvements.
+Lokesh is currently working as an AI/ML Engineer Intern at Invisibl Cloud (June 2025 – Present, 1 year 3 months: 8 months full-time, 7 months part-time). He works on AI agents, LLM-powered workflows, Python backend services, AWS-based cloud applications, and collaborates directly with clients to translate feedback into technical improvements.
 
 ==================================================
 RESPONSE RULES

@@ -18,7 +18,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFC] text-slate-900 dark:bg-[#07090E] dark:text-slate-100 selection:bg-sky-500/20 selection:text-sky-500 relative transition-colors duration-300">
+    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white relative transition-colors duration-300">
       {/* Intro Portfolio Loader */}
       {isLoading && (
         <PortfolioLoader onComplete={() => setIsLoading(false)} />

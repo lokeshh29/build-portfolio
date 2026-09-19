@@ -11,21 +11,28 @@ const config: Config = {
     extend: {
       colors: {
         background: {
-          DEFAULT: "#0A0A0F",
-          subtle: "#13131A",
-          card: "#1A1A24",
-          hover: "#222230",
+          DEFAULT: "#000000",
+          subtle: "#0B0910",
+          card: "#120F1A",
+          hover: "#1A1626",
         },
         border: {
-          subtle: "rgba(124, 58, 237, 0.2)",
-          highlight: "rgba(232, 121, 249, 0.4)",
+          subtle: "rgba(78, 63, 110, 0.25)",
+          highlight: "rgba(78, 63, 110, 0.55)",
         },
-        accent: {
-          violet: "#7C3AED",
-          fuchsia: "#E879F9",
-          purple: "#A855F7",
-          sky: "#38BDF8",
-          indigo: "#6366F1",
+        brand: {
+          DEFAULT: "#4e3f6e",
+          50: "#f6f5f9",
+          100: "#edeaf3",
+          200: "#dbd5e7",
+          300: "#c4b7d8",
+          400: "#9e8cb8",
+          500: "#7b689a",
+          600: "#4e3f6e",
+          700: "#3e3258",
+          800: "#302645",
+          900: "#221a32",
+          950: "#120e1c",
         },
       },
       fontFamily: {

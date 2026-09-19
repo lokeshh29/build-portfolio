@@ -24,23 +24,23 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 border-t border-slate-200 dark:border-slate-800/80 relative">
+    <section id="about" className="py-24 border-t border-black/10 dark:border-[#4e3f6e]/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Narrative */}
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-fuchsia-400">
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#4e3f6e] dark:text-[#c4b7d8]">
                 About Me
               </span>
-              <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+              <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-black dark:text-white tracking-tight leading-tight">
                 Engineering AI from Prototype to Production.
               </h2>
             </div>
 
-            <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg font-body">
+            <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base sm:text-lg font-body">
               <p>
-                I'm <span className="text-slate-900 dark:text-white font-semibold">Lokesh Kumar R</span>, an AI/ML Engineer focused on building production-oriented AI systems.
+                I'm <span className="text-black dark:text-white font-semibold">Lokesh Kumar R</span>, an AI/ML Engineer focused on building production-oriented AI systems.
               </p>
               <p>
                 My work spans AI agents, retrieval-augmented generation, LLM workflows, backend APIs, and cloud-native architectures.
@@ -48,13 +48,13 @@ export default function About() {
               <p>
                 I have worked on AI applications using Python, FastAPI, AWS, RAG, multi-agent systems, and tool-calling architectures.
               </p>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 I enjoy turning AI prototypes into reliable systems with guardrails, observability, APIs, and deployment infrastructure.
               </p>
             </div>
 
-            <div className="pt-3 flex items-center gap-2.5 font-mono text-xs text-violet-700 dark:text-fuchsia-300/90 font-medium">
-              <ShieldCheck className="h-4 w-4 text-violet-600 dark:text-fuchsia-400 shrink-0" />
+            <div className="pt-3 flex items-center gap-2.5 font-mono text-xs text-[#4e3f6e] dark:text-[#c4b7d8] font-medium">
+              <ShieldCheck className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
               <span>Prioritizing prompt injection defense, PII protection, and strict model grounding.</span>
             </div>
           </div>
@@ -69,14 +69,14 @@ export default function About() {
                   className="glass-card p-6 rounded-2xl transition-all duration-300 hover:translate-x-1"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/20 text-violet-600 dark:text-fuchsia-400 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                      <h3 className="font-display text-base sm:text-lg font-bold text-black dark:text-white">
                         {pillar.title}
                       </h3>
-                      <p className="mt-1.5 font-body text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <p className="mt-1.5 font-body text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                         {pillar.description}
                       </p>
                     </div>

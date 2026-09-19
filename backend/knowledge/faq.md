@@ -25,4 +25,4 @@ Each project demonstrates distinct technical capabilities:
 - **News Ranking Agent**: Multidimensional LLM content evaluation with Gemini 2.0 and Selenium.
 
 ### What was Lokesh's role at Invisibl Cloud?
-Lokesh worked as an AI/ML Engineer Intern from June 2025 to August 2026 (1 year 3 months: 8 months full-time, 7 months part-time). He worked on AI agents, LLM-powered workflows, Python backend services, and AWS cloud applications, and collaborated directly with clients.
+Lokesh is currently working as an AI/ML Engineer Intern at Invisibl Cloud (June 2025 – Present, 1 year 3 months: 8 months full-time, 7 months part-time). He works on AI agents, LLM-powered workflows, Python backend services, and AWS cloud applications, and collaborates directly with clients.
