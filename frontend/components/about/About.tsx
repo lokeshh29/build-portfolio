@@ -30,15 +30,15 @@ export default function About() {
           {/* Left Column: Narrative */}
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#4e3f6e] dark:text-[#c4b7d8]">
+              <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
                 About Me
               </span>
-              <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-black dark:text-white tracking-tight leading-tight">
-                Engineering AI from Prototype to Production.
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black dark:text-white tracking-tight leading-[1.15]">
+                Prototype to Production.
               </h2>
             </div>
 
-            <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base sm:text-lg font-body">
+            <div className="space-y-5 text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg sm:text-xl font-body">
               <p>
                 I'm <span className="text-black dark:text-white font-semibold">Lokesh Kumar R</span>, an AI/ML Engineer focused on building production-oriented AI systems.
               </p>
@@ -53,30 +53,30 @@ export default function About() {
               </p>
             </div>
 
-            <div className="pt-3 flex items-center gap-2.5 font-mono text-xs text-[#4e3f6e] dark:text-[#c4b7d8] font-medium">
-              <ShieldCheck className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
+            <div className="pt-4 flex items-center gap-3 font-mono text-sm sm:text-base text-[#4e3f6e] dark:text-[#c4b7d8] font-medium">
+              <ShieldCheck className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
               <span>Prioritizing prompt injection defense, PII protection, and strict model grounding.</span>
             </div>
           </div>
 
           {/* Right Column: Key Pillars */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-5">
             {pillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={pillar.title}
-                  className="glass-card p-6 rounded-2xl transition-all duration-300 hover:translate-x-1"
+                  className="glass-card p-7 sm:p-8 rounded-3xl transition-all duration-300 hover:translate-x-1"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0">
-                      <Icon className="h-5 w-5" />
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 rounded-2xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0">
+                      <Icon className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-display text-base sm:text-lg font-bold text-black dark:text-white">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-black dark:text-white">
                         {pillar.title}
                       </h3>
-                      <p className="mt-1.5 font-body text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                      <p className="mt-2 font-body text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                         {pillar.description}
                       </p>
                     </div>

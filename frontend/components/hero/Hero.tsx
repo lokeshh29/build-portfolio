@@ -24,18 +24,9 @@ export default function Hero({ onOpenChat }: HeroProps) {
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#4e3f6e]/30 bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 text-xs font-mono text-[#4e3f6e] dark:text-[#c4b7d8] mb-6 backdrop-blur-sm shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7b689a] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4e3f6e]"></span>
-            </span>
-            <span>Available for AI/ML Engineering Opportunities</span>
-          </div>
-
+        <div className="max-w-4xl">
           {/* Heading with Syne Display font */}
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-[-2px] text-black dark:text-white leading-[1.05]">
+          <h1 className="font-display text-6xl sm:text-8xl lg:text-9xl font-extrabold tracking-[-3px] text-black dark:text-white leading-[1.02]">
             Hi, I'm{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4e3f6e] via-[#7b689a] to-black dark:from-white dark:via-[#dbd5e7] dark:to-[#4e3f6e]">
               Lokesh.
@@ -43,7 +34,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </h1>
 
           {/* Core Tagline */}
-          <h2 className="mt-5 font-display text-xl sm:text-2xl lg:text-3xl font-bold text-black dark:text-white tracking-tight leading-snug">
+          <h2 className="mt-6 font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-black dark:text-white tracking-tight leading-snug">
             AI/ML Engineer building{" "}
             <span className="text-[#4e3f6e] dark:text-[#c4b7d8]">AI Agents</span>,{" "}
             <span className="text-[#4e3f6e] dark:text-[#c4b7d8]">RAG systems</span> and{" "}
@@ -51,26 +42,26 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-6 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl font-normal font-body">
+          <p className="mt-6 text-lg sm:text-xl lg:text-2xl text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl font-normal font-body">
             I design intelligent systems that combine LLMs, retrieval, agents, APIs, and cloud infrastructure.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-8 flex flex-wrap items-center gap-4 font-body">
+          <div className="mt-10 flex flex-wrap items-center gap-4 font-body">
             <button
               onClick={onOpenChat}
-              className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-[#4e3f6e] hover:bg-[#3e3258] shadow-lg shadow-[#4e3f6e]/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-xl text-base sm:text-lg font-semibold text-white bg-[#4e3f6e] hover:bg-[#3e3258] shadow-lg shadow-[#4e3f6e]/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <Sparkles className="h-4 w-4 text-[#c4b7d8] group-hover:rotate-12 transition-transform" />
+              <Sparkles className="h-5 w-5 text-[#c4b7d8] group-hover:rotate-12 transition-transform" />
               <span>Ask My AI</span>
             </button>
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-black dark:text-white bg-white dark:bg-black hover:bg-neutral-50 dark:hover:bg-neutral-900 border border-neutral-300 dark:border-[#4e3f6e]/40 transition-all shadow-sm"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-base sm:text-lg font-semibold text-black dark:text-white bg-white dark:bg-black hover:bg-neutral-50 dark:hover:bg-neutral-900 border border-neutral-300 dark:border-[#4e3f6e]/40 transition-all shadow-sm"
             >
               <span>View Projects</span>
-              <ArrowRight className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
+              <ArrowRight className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
             </a>
 
             <a
@@ -78,23 +69,23 @@ export default function Hero({ onOpenChat }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               download="lokesh_resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium font-mono text-[#4e3f6e] dark:text-[#c4b7d8] hover:text-black dark:hover:text-white transition-colors group"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm sm:text-base font-medium font-mono text-[#4e3f6e] dark:text-[#c4b7d8] hover:text-black dark:hover:text-white transition-colors group"
             >
-              <FileDown className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:scale-110 transition-transform" />
+              <FileDown className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:scale-110 transition-transform" />
               <span>Download Resume</span>
             </a>
           </div>
 
           {/* Tech Pills Row */}
-          <div className="mt-12 pt-8 border-t border-black/10 dark:border-[#4e3f6e]/30">
-            <p className="font-mono text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-3">
+          <div className="mt-14 pt-8 border-t border-black/10 dark:border-[#4e3f6e]/30">
+            <p className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-neutral-500 uppercase mb-4">
               Core Technologies & Architecture
             </p>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2.5">
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="font-mono px-3 py-1 rounded-md text-xs font-medium text-black dark:text-white bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm"
+                  className="font-mono px-4 py-1.5 rounded-lg text-sm sm:text-base font-medium text-black dark:text-white bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm"
                 >
                   {tech}
                 </span>
@@ -103,13 +94,13 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </div>
 
           {/* Credential Badges */}
-          <div className="mt-6 flex flex-wrap gap-4 text-xs font-mono text-neutral-600 dark:text-neutral-400">
-            <div className="flex items-center gap-2 bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-lg px-3 py-1.5 shadow-sm text-black dark:text-white">
-              <Briefcase className="h-3.5 w-3.5 text-[#4e3f6e] dark:text-[#c4b7d8]" />
+          <div className="mt-6 flex flex-wrap gap-4 text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400">
+            <div className="flex items-center gap-2.5 bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-xl px-4 py-2 shadow-sm text-black dark:text-white font-medium">
+              <Briefcase className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
               <span>AI/ML Engineer Intern @ Invisibl Cloud (Present)</span>
             </div>
-            <div className="flex items-center gap-2 bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-lg px-3 py-1.5 shadow-sm text-black dark:text-white">
-              <GraduationCap className="h-3.5 w-3.5 text-[#4e3f6e] dark:text-[#c4b7d8]" />
+            <div className="flex items-center gap-2.5 bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-xl px-4 py-2 shadow-sm text-black dark:text-white font-medium">
+              <GraduationCap className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
               <span>M.Sc. Integrated CS @ CEG, Anna University (2027)</span>
             </div>
           </div>

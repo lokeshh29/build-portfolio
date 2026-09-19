@@ -260,20 +260,20 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 border-t border-black/10 dark:border-[#4e3f6e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#4e3f6e] dark:text-[#c4b7d8]">
+        <div className="max-w-3xl mb-14">
+          <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
             Featured Work
           </span>
-          <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-black dark:text-white tracking-tight">
+          <h2 className="mt-3 font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-black dark:text-white tracking-tight leading-[1.08]">
             Production AI Projects
           </h2>
-          <p className="mt-3 font-body text-neutral-600 dark:text-neutral-400 text-base sm:text-lg">
+          <p className="mt-4 font-body text-neutral-600 dark:text-neutral-300 text-lg sm:text-xl">
             Architected with multi-agent orchestration, retrieval-augmented generation, tool calling, and cloud infrastructure.
           </p>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Horizontal Project Cards Stack */}
+        <div className="space-y-8 lg:space-y-10 w-full">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}

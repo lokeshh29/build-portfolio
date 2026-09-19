@@ -26,41 +26,41 @@ export default function Achievements() {
   ];
 
   return (
-    <section id="achievements" className="py-24 border-t border-black/10 dark:border-[#4e3f6e]/30">
+    <section id="achievements" className="py-28 border-t border-black/10 dark:border-[#4e3f6e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#4e3f6e] dark:text-[#c4b7d8]">
+        <div className="max-w-3xl mb-14">
+          <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
             Recognition & Leadership
           </span>
-          <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-black dark:text-white tracking-tight">
+          <h2 className="mt-3 font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-black dark:text-white tracking-tight">
             Achievements & Leadership
           </h2>
-          <p className="mt-3 font-body text-neutral-600 dark:text-neutral-400 text-base sm:text-lg">
+          <p className="mt-4 font-body text-neutral-600 dark:text-neutral-300 text-lg sm:text-xl leading-relaxed">
             Demonstrated technical excellence under pressure and collaborative leadership.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
           {achievements.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="glass-card rounded-2xl p-6 sm:p-8 space-y-4 transition-all duration-300 hover:border-[#4e3f6e]/60"
+                className="glass-card rounded-3xl p-7 sm:p-10 space-y-5 transition-all duration-300 hover:border-[#4e3f6e]/60 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between">
                   <div
-                    className={`p-3 rounded-xl ${item.bgColor} border ${item.borderColor} ${item.color}`}
+                    className={`p-3.5 rounded-2xl ${item.bgColor} border ${item.borderColor} ${item.color}`}
                   >
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-7 w-7" />
                   </div>
-                  <span className="font-mono px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30">
+                  <span className="font-mono px-3 py-1 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-black dark:text-white">{item.title}</h3>
-                <p className="font-body text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-black dark:text-white">{item.title}</h3>
+                <p className="font-body text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
                   {item.description}
                 </p>
               </div>
