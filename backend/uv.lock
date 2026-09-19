@@ -70,7 +70,7 @@ wheels = [
 [[package]]
 name = "fastapi-openrouter-backend"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "httpx" },
@@ -89,9 +89,6 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.28.0" },
 ]
-
-[package.metadata.requires-dev]
-dev = []
 
 [[package]]
 name = "h11"
