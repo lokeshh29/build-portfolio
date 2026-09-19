@@ -131,33 +131,33 @@ export default function ChatWidget({
       {!activeOpen && (
         <button
           onClick={() => setInternalOpen(true)}
-          className="fixed bottom-6 right-6 z-40 group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-semibold text-sm shadow-xl shadow-sky-500/25 hover:from-sky-400 hover:to-indigo-500 hover:shadow-sky-500/40 transition-all transform hover:-translate-y-1 active:translate-y-0"
+          className="fixed bottom-6 right-6 z-40 group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-mono font-semibold text-xs sm:text-sm shadow-xl shadow-purple-500/25 hover:from-violet-500 hover:to-fuchsia-500 hover:shadow-purple-500/40 transition-all transform hover:-translate-y-1 active:translate-y-0"
           aria-label="Ask Lokesh AI"
         >
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-200 opacity-75"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fuchsia-200 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
           </span>
-          <Sparkles className="h-4 w-4 text-sky-200 group-hover:rotate-12 transition-transform" />
+          <Sparkles className="h-4 w-4 text-purple-200 group-hover:rotate-12 transition-transform" />
           <span>Ask Lokesh AI</span>
         </button>
       )}
 
       {/* Slide-out Panel / Mobile Full-Screen Modal */}
       {activeOpen && (
-        <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[420px] sm:h-[600px] z-50 flex flex-col bg-white dark:bg-[#0D111A] border border-slate-200 dark:border-slate-700/80 sm:rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/80 overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-200">
+        <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[420px] sm:h-[600px] z-50 flex flex-col bg-white dark:bg-[#0E0E17] border border-slate-200 dark:border-purple-500/20 sm:rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/80 overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-200">
           {/* Header */}
-          <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/90 dark:bg-[#07090E]/80 backdrop-blur-md">
+          <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/90 dark:bg-[#07070C]/90 backdrop-blur-md">
             <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 rounded-lg bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/30 flex items-center justify-center text-sky-600 dark:text-sky-400">
+              <div className="h-8 w-8 rounded-lg bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/30 flex items-center justify-center text-violet-600 dark:text-fuchsia-400">
                 <Sparkles className="h-4 w-4" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
                   Ask Lokesh AI
                   <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
                 </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
                   Portfolio Intelligence Assistant
                 </p>
               </div>
@@ -182,7 +182,7 @@ export default function ChatWidget({
           </div>
 
           {/* Conversation Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs sm:text-sm bg-slate-50/50 dark:bg-transparent">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs sm:text-sm bg-slate-50/50 dark:bg-transparent font-body">
             {messages.map((msg, idx) => (
               <ChatMessage
                 key={idx}
@@ -205,7 +205,7 @@ export default function ChatWidget({
                 </div>
                 <button
                   onClick={() => handleSendMessage()}
-                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-700 dark:text-rose-200 hover:underline shrink-0"
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-700 dark:text-rose-200 hover:underline shrink-0 font-mono"
                 >
                   <RefreshCw className="h-3 w-3" />
                   <span>Retry</span>
@@ -226,7 +226,7 @@ export default function ChatWidget({
           </div>
 
           {/* Input Box */}
-          <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#07090E]/60">
+          <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#07070C]/80">
             <div className="relative flex items-center">
               <input
                 ref={inputRef}
@@ -241,12 +241,12 @@ export default function ChatWidget({
                 }
                 disabled={isStreaming}
                 maxLength={500}
-                className="w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-sky-500/50 disabled:opacity-60"
+                className="w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-purple-500/50 disabled:opacity-60 font-body"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim() || isStreaming}
-                className="absolute right-2 p-1.5 rounded-lg bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 hover:bg-sky-500 hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none"
+                className="absolute right-2 p-1.5 rounded-lg bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-fuchsia-400 hover:bg-violet-600 hover:text-white dark:hover:bg-violet-600 dark:hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none"
                 aria-label="Send message"
               >
                 {isStreaming ? (
@@ -256,7 +256,7 @@ export default function ChatWidget({
                 )}
               </button>
             </div>
-            <p className="mt-1.5 text-[10px] text-center text-slate-500">
+            <p className="mt-1.5 font-mono text-[10px] text-center text-slate-500">
               Grounded exclusively in Lokesh's verified portfolio knowledge.
             </p>
           </div>

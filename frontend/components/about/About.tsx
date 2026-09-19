@@ -24,21 +24,21 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 border-t border-slate-200 dark:border-slate-800/80 relative">
+    <section id="about" className="py-24 border-t border-slate-200 dark:border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Narrative */}
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-fuchsia-400">
                 About Me
               </span>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+              <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                 Engineering AI from Prototype to Production.
               </h2>
             </div>
 
-            <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+            <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg font-body">
               <p>
                 I'm <span className="text-slate-900 dark:text-white font-semibold">Lokesh Kumar R</span>, an AI/ML Engineer focused on building production-oriented AI systems.
               </p>
@@ -53,8 +53,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="pt-2 flex items-center gap-2 text-xs text-sky-700 dark:text-sky-400/90 font-medium">
-              <ShieldCheck className="h-4 w-4 text-sky-600 dark:text-sky-400" />
+            <div className="pt-3 flex items-center gap-2.5 font-mono text-xs text-violet-700 dark:text-fuchsia-300/90 font-medium">
+              <ShieldCheck className="h-4 w-4 text-violet-600 dark:text-fuchsia-400 shrink-0" />
               <span>Prioritizing prompt injection defense, PII protection, and strict model grounding.</span>
             </div>
           </div>
@@ -69,14 +69,14 @@ export default function About() {
                   className="glass-card p-6 rounded-2xl transition-all duration-300 hover:translate-x-1"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-600 dark:text-sky-400 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/20 text-violet-600 dark:text-fuchsia-400 shrink-0">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                         {pillar.title}
                       </h3>
-                      <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <p className="mt-1.5 font-body text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                         {pillar.description}
                       </p>
                     </div>

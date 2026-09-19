@@ -258,16 +258,16 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 border-t border-slate-800/80">
+    <section id="projects" className="py-24 border-t border-slate-200 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-fuchsia-400">
             Featured Work
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Production AI Projects
           </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base">
+          <p className="mt-3 font-body text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Architected with multi-agent orchestration, retrieval-augmented generation, tool calling, and cloud infrastructure.
           </p>
         </div>

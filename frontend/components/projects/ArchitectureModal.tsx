@@ -38,14 +38,14 @@ export default function ArchitectureModal({
         {/* Header */}
         <div className="flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/30 text-sky-600 dark:text-sky-400">
+            <div className="p-2.5 rounded-xl bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/30 text-violet-600 dark:text-fuchsia-400">
               <Network className="h-5 w-5" />
             </div>
             <div>
-              <span className="text-[11px] font-bold tracking-wider uppercase text-sky-600 dark:text-sky-400">
+              <span className="font-mono text-[11px] font-bold tracking-wider uppercase text-violet-600 dark:text-fuchsia-400">
                 System Architecture
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
                 {data.title}
               </h3>
             </div>
@@ -62,17 +62,17 @@ export default function ArchitectureModal({
         <div className="mt-6 space-y-8">
           {/* Summary */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
               Architecture Overview
             </h4>
-            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <p className="font-body text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               {data.description}
             </p>
           </div>
 
           {/* Sequential Data Flow */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">
               Execution & Pipeline Flow
             </h4>
             <div className="space-y-3">
@@ -81,14 +81,14 @@ export default function ArchitectureModal({
                   key={idx}
                   className="flex items-start gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80"
                 >
-                  <div className="flex items-center justify-center h-7 w-7 rounded-lg bg-sky-100 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 font-mono text-xs font-bold shrink-0">
+                  <div className="flex items-center justify-center h-7 w-7 rounded-lg bg-violet-100 dark:bg-violet-500/15 text-violet-700 dark:text-fuchsia-400 font-mono text-xs font-bold shrink-0">
                     0{idx + 1}
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                    <div className="font-display text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
                       <span>{item.label}</span>
                     </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{item.desc}</p>
+                    <p className="font-body text-xs text-slate-600 dark:text-slate-400 mt-1">{item.desc}</p>
                   </div>
                   {idx < data.flowSteps.length - 1 && (
                     <ArrowRight className="h-4 w-4 text-slate-400 dark:text-slate-600 shrink-0 self-center hidden sm:block" />
@@ -100,7 +100,7 @@ export default function ArchitectureModal({
 
           {/* Core Components */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
               Key Architecture Components
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -109,10 +109,10 @@ export default function ArchitectureModal({
                   key={idx}
                   className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs"
                 >
-                  <span className="font-semibold text-sky-700 dark:text-sky-300 block mb-0.5">
+                  <span className="font-display font-semibold text-violet-700 dark:text-fuchsia-300 block mb-0.5">
                     {comp.name}
                   </span>
-                  <span className="text-slate-600 dark:text-slate-400">{comp.role}</span>
+                  <span className="font-body text-slate-600 dark:text-slate-400">{comp.role}</span>
                 </div>
               ))}
             </div>
@@ -120,14 +120,14 @@ export default function ArchitectureModal({
 
           {/* Technology Badges */}
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
               Infrastructure & Technologies
             </h4>
             <div className="flex flex-wrap gap-2">
               {data.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  className="font-mono px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                 >
                   {tech}
                 </span>
@@ -140,7 +140,7 @@ export default function ArchitectureModal({
         <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors"
+            className="font-mono px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors"
           >
             Close Architecture
           </button>

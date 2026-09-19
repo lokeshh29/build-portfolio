@@ -19,23 +19,23 @@ export default function Achievements() {
       icon: Users,
       description:
         "Led the college cricket team through competitive tournaments, fostering team collaboration, strategic decision-making, and high-pressure performance.",
-      color: "text-sky-600 dark:text-sky-400",
-      bgColor: "bg-sky-50 dark:bg-sky-500/10",
-      borderColor: "border-sky-200 dark:border-sky-500/30",
+      color: "text-violet-600 dark:text-fuchsia-400",
+      bgColor: "bg-violet-50 dark:bg-violet-500/10",
+      borderColor: "border-violet-200 dark:border-violet-500/30",
     },
   ];
 
   return (
-    <section id="achievements" className="py-20 border-t border-slate-200 dark:border-slate-800/80">
+    <section id="achievements" className="py-24 border-t border-slate-200 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-fuchsia-400">
             Recognition & Leadership
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="mt-2 font-display text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Achievements & Leadership
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          <p className="mt-3 font-body text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Demonstrated technical excellence under pressure and collaborative leadership.
           </p>
         </div>
@@ -54,13 +54,13 @@ export default function Achievements() {
                   >
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                  <span className="font-mono px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
+                <p className="font-body text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
                   {item.description}
                 </p>
               </div>

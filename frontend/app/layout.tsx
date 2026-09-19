@@ -3,12 +3,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Lokesh Kumar R | AI/ML Engineer",
+  title: "Lokesh Kumar R — AI & ML Engineer",
   description:
-    "Personal portfolio of Lokesh Kumar R — AI/ML Engineer building AI Agents, RAG systems, and cloud-native AI applications.",
+    "Portfolio of Lokesh Kumar R — AI & ML Engineer building AI Agents, RAG systems, and cloud-native AI applications.",
   keywords: [
     "Lokesh Kumar R",
-    "AI/ML Engineer",
+    "AI & ML Engineer",
     "AI Agents",
     "RAG",
     "FastAPI",
@@ -32,7 +32,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#FAFAFC] text-slate-900 dark:bg-[#07090E] dark:text-slate-100 antialiased selection:bg-sky-500/20 selection:text-sky-500 transition-colors duration-300">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-screen bg-[#FAFAF9] text-[#0F0F1A] dark:bg-[#0A0A0F] dark:text-[#F1F5F9] font-body antialiased selection:bg-purple-500/30 selection:text-purple-300 transition-colors duration-500">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

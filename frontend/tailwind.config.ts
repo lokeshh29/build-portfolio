@@ -11,25 +11,28 @@ const config: Config = {
     extend: {
       colors: {
         background: {
-          DEFAULT: "#07090E",
-          subtle: "#0D111A",
-          card: "#121824",
-          hover: "#182132",
+          DEFAULT: "#0A0A0F",
+          subtle: "#13131A",
+          card: "#1A1A24",
+          hover: "#222230",
         },
         border: {
-          subtle: "#1E293B",
-          highlight: "#334155",
+          subtle: "rgba(124, 58, 237, 0.2)",
+          highlight: "rgba(232, 121, 249, 0.4)",
         },
         accent: {
-          blue: "#38BDF8",
+          violet: "#7C3AED",
+          fuchsia: "#E879F9",
+          purple: "#A855F7",
+          sky: "#38BDF8",
           indigo: "#6366F1",
-          violet: "#8B5CF6",
-          cyan: "#06B6D4",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        display: ["Syne", "sans-serif"],
+        body: ["DM Sans", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       animation: {
         "pulse-subtle": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
