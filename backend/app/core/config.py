@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # Security & Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 10
     MAX_QUERY_LENGTH: int = 500
-    ALLOWED_ORIGINS: Union[List[str], str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    ALLOWED_ORIGINS: Union[List[str], str] = ["*"]
     
     # Server host & port
     HOST: str = "0.0.0.0"
@@ -30,10 +30,12 @@ class Settings(BaseSettings):
     @classmethod
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> List[str]:
         if isinstance(v, str) and not v.startswith("["):
+            if v.strip() == "*":
+                return ["*"]
             return [i.strip() for i in v.split(",") if i.strip()]
         elif isinstance(v, list):
             return v
-        return ["http://localhost:3000", "http://127.0.0.1:3000"]
+        return ["*"]
 
     model_config = SettingsConfigDict(
         env_file=".env",
