@@ -10,6 +10,7 @@ from app.schemas.chat import (
     FeedbackRequest,
 )
 from app.core.prompt_builder import prompt_builder
+from app.core.security import validate_prompt_safety, rate_limiter
 from app.llm.factory import get_llm_provider
 from app.llm.base import LLMProvider
 
@@ -21,7 +22,8 @@ router = APIRouter()
     "/chat",
     response_model=ChatResponse,
     summary="Ask Lokesh AI",
-    description="Submits a question to Lokesh's AI Assistant and returns a grounded response.",
+    description="Submits a question to Lokesh's AI Assistant with prompt injection defense and rate limiting.",
+    dependencies=[Depends(rate_limiter)],
 )
 async def chat_with_assistant(
     request: ChatRequest,
@@ -29,7 +31,12 @@ async def chat_with_assistant(
 ):
     """
     Handles question answering using the grounded system prompt and OpenRouter.
+    Enforces prompt injection detection and rate limits.
     """
+    # 1. Prompt Injection Defense & Length Validation
+    validate_prompt_safety(request.message)
+
+    # 2. Build Messages
     history_dicts = (
         [h.model_dump() for h in request.history] if request.history else None
     )
@@ -38,6 +45,7 @@ async def chat_with_assistant(
         history=history_dicts,
     )
 
+    # 3. LLM Generation
     answer, model_used = await llm.generate(
         messages=messages,
         model=request.model,
@@ -55,7 +63,8 @@ async def chat_with_assistant(
 @router.post(
     "/chat/stream",
     summary="Stream Ask Lokesh AI Response",
-    description="Server-Sent Events (SSE) streaming endpoint for live answer generation.",
+    description="Server-Sent Events (SSE) streaming endpoint with prompt injection defense and rate limiting.",
+    dependencies=[Depends(rate_limiter)],
 )
 async def stream_chat_with_assistant(
     request: ChatRequest,
@@ -63,7 +72,12 @@ async def stream_chat_with_assistant(
 ):
     """
     Streams response tokens using Server-Sent Events (SSE).
+    Enforces prompt injection detection and rate limits.
     """
+    # 1. Prompt Injection Defense & Length Validation
+    validate_prompt_safety(request.message)
+
+    # 2. Build Messages
     history_dicts = (
         [h.model_dump() for h in request.history] if request.history else None
     )
