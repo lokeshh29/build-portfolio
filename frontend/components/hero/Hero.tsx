@@ -71,10 +71,13 @@ export default function Hero({ onOpenChat }: HeroProps) {
             </a>
 
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="lokesh_resume.pdf"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors group"
             >
-              <FileDown className="h-4 w-4" />
+              <FileDown className="h-4 w-4 group-hover:text-sky-400 transition-colors" />
               <span>Download Resume</span>
             </a>
           </div>

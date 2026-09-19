@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Sparkles, Menu, X, Terminal } from "lucide-react";
+import { Sparkles, Menu, X, Terminal, FileText } from "lucide-react";
 
 interface NavbarProps {
   onOpenChat?: () => void;
@@ -61,6 +61,15 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
               {link.name}
             </a>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-sky-300 transition-colors"
+          >
+            <FileText className="h-3.5 w-3.5 text-sky-400" />
+            <span>Resume</span>
+          </a>
         </nav>
 
         {/* Right CTA */}
@@ -112,6 +121,16 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
               {link.name}
             </a>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-2 text-sm font-medium text-sky-300 hover:text-sky-200 py-1.5"
+          >
+            <FileText className="h-4 w-4 text-sky-400" />
+            <span>Resume (PDF)</span>
+          </a>
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
             <button
               onClick={() => {
