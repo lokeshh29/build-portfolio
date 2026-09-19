@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Cpu, Network, Cloud, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function About() {
   const pillars = [
@@ -27,8 +30,14 @@ export default function About() {
     <section id="about" className="py-24 border-t border-black/10 dark:border-[#4e3f6e]/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Narrative */}
-          <div className="lg:col-span-6 space-y-6">
+          {/* Left Column: Narrative with motion reveal */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="lg:col-span-6 space-y-6"
+          >
             <div>
               <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
                 About Me
@@ -57,16 +66,21 @@ export default function About() {
               <ShieldCheck className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
               <span>Prioritizing prompt injection defense, PII protection, and strict model grounding.</span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Key Pillars */}
+          {/* Right Column: Key Pillars with staggered entrance and interactive hover */}
           <div className="lg:col-span-6 space-y-5">
-            {pillars.map((pillar) => {
+            {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
               return (
-                <div
+                <motion.div
                   key={pillar.title}
-                  className="glass-card p-7 sm:p-8 rounded-3xl transition-all duration-300 hover:translate-x-1"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.15, ease: "easeOut" }}
+                  whileHover={{ x: 6, transition: { duration: 0.2 } }}
+                  className="glass-card p-7 sm:p-8 rounded-3xl transition-all duration-300 hover:border-[#4e3f6e]/60"
                 >
                   <div className="flex items-start gap-5">
                     <div className="p-3 rounded-2xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0">
@@ -81,7 +95,7 @@ export default function About() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

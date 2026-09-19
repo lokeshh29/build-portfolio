@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Sparkles, Menu, X, Terminal, FileText } from "lucide-react";
+import { Sparkles, Menu, X, Terminal } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
 interface NavbarProps {
@@ -11,6 +12,13 @@ interface NavbarProps {
 export default function Navbar({ onOpenChat }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +45,12 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
           : "bg-transparent py-5"
       }`}
     >
+      {/* Animated Glowing Scroll Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#4e3f6e] via-[#7b689a] to-[#4e3f6e] dark:to-white origin-left shadow-[0_0_10px_rgba(78,63,110,0.8)] z-50 pointer-events-none"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Brand (Left: flex-1 to balance right container) */}
         <div className="flex-1 flex items-center justify-start">

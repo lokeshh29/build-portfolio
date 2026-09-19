@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Building2, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   const highlights = [
@@ -11,7 +14,13 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 border-t border-black/10 dark:border-[#4e3f6e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-3xl mb-14"
+        >
           <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
             Work History
           </span>
@@ -21,15 +30,23 @@ export default function Experience() {
           <p className="mt-4 font-body text-neutral-600 dark:text-neutral-300 text-lg sm:text-xl">
             Hands-on experience engineering production-grade AI agents, cloud APIs, and client-facing solutions.
           </p>
-        </div>
+        </motion.div>
 
         {/* Experience Timeline Card */}
         <div className="w-full">
           <div className="relative pl-6 sm:pl-9 border-l-2 border-[#4e3f6e]/30 dark:border-[#4e3f6e]/50 space-y-10 w-full">
-            {/* Timeline Dot */}
-            <div className="absolute -left-[11px] top-2 h-5 w-5 rounded-full border-4 border-white dark:border-black bg-[#4e3f6e] shadow-sm shadow-[#4e3f6e]/50" />
+            {/* Timeline Pulsing Dot */}
+            <div className="absolute -left-[11px] top-2 h-5 w-5 rounded-full border-4 border-white dark:border-black bg-[#4e3f6e] shadow-sm shadow-[#4e3f6e]/50">
+              <span className="animate-ping absolute -inset-1 rounded-full bg-[#7b689a] opacity-60"></span>
+            </div>
 
-            <div className="glass-card rounded-3xl p-7 sm:p-10 space-y-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="glass-card rounded-3xl p-7 sm:p-10 space-y-8 w-full transition-all duration-300 hover:border-[#4e3f6e]/60"
+            >
               {/* Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-200 dark:border-[#4e3f6e]/30">
                 <div>
@@ -94,7 +111,7 @@ export default function Experience() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

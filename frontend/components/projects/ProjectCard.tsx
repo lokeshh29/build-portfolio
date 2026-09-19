@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Network, Github, CheckCircle } from "lucide-react";
 import { ProjectArchitecture } from "./ArchitectureModal";
 
@@ -27,7 +28,14 @@ export default function ProjectCard({
   onViewArchitecture,
 }: ProjectCardProps) {
   return (
-    <div className="glass-card rounded-3xl p-7 sm:p-10 w-full transition-all duration-300 hover:border-[#4e3f6e]/60 hover:-translate-y-1 group">
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -5 }}
+      className="glass-card rounded-3xl p-7 sm:p-10 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-2xl hover:shadow-[#4e3f6e]/10 group"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Left Column: Details, Tech, Actions */}
         <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
@@ -76,24 +84,28 @@ export default function ProjectCard({
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => onViewArchitecture(project.architecture)}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-semibold text-[#4e3f6e] dark:text-[#c4b7d8] bg-[#4e3f6e]/10 hover:bg-[#4e3f6e] hover:text-white dark:bg-[#4e3f6e]/20 dark:hover:bg-[#4e3f6e] dark:hover:text-white border border-[#4e3f6e]/30 transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-semibold text-[#4e3f6e] dark:text-[#c4b7d8] bg-[#4e3f6e]/10 hover:bg-[#4e3f6e] hover:text-white dark:bg-[#4e3f6e]/20 dark:hover:bg-[#4e3f6e] dark:hover:text-white border border-[#4e3f6e]/30 transition-colors shadow-sm"
               >
                 <Network className="h-4 w-4" />
                 <span>Architecture Flow</span>
-              </button>
+              </motion.button>
               {project.githubUrl && (
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-medium text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 bg-white dark:bg-black border border-neutral-300 dark:border-[#4e3f6e]/30 transition-all shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-medium text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 bg-white dark:bg-black border border-neutral-300 dark:border-[#4e3f6e]/30 transition-colors shadow-sm"
                   title="View Source on GitHub"
                 >
                   <Github className="h-4 w-4 text-neutral-700 dark:text-neutral-300" />
                   <span>GitHub</span>
-                </a>
+                </motion.a>
               )}
             </div>
           </div>
@@ -117,6 +129,6 @@ export default function ProjectCard({
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
