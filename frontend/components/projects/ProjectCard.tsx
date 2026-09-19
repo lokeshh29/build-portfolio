@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Network, ArrowRight, CheckCircle, ExternalLink } from "lucide-react";
+import { Network, Github, CheckCircle } from "lucide-react";
 import { ProjectArchitecture } from "./ArchitectureModal";
 
 export interface ProjectData {
@@ -13,6 +13,7 @@ export interface ProjectData {
   engineeringHighlights: string[];
   technologies: string[];
   architecture: ProjectArchitecture;
+  githubUrl?: string;
   featured?: boolean;
 }
 
@@ -99,13 +100,18 @@ export default function ProjectCard({
             <Network className="h-3.5 w-3.5" />
             <span>Architecture Flow</span>
           </button>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center p-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all"
-            title="Discuss Project"
-          >
-            <ExternalLink className="h-4 w-4" />
-          </a>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all group/btn"
+              title="View Source on GitHub"
+            >
+              <Github className="h-3.5 w-3.5 text-slate-400 group-hover/btn:text-white transition-colors" />
+              <span>GitHub</span>
+            </a>
+          )}
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ export default function Projects() {
       title: "AssistHub",
       badge: "Multi-Agent System",
       tagline: "Multi-Agent RAG HR Assistant",
+      githubUrl: "https://github.com/lokeshh29/assisthub-doc-ai",
       description:
         "AI-powered HR assistant enabling employees to interact with organizational policies and internal information through a conversational interface, tool calling, and automated scheduling.",
       featured: true,
@@ -105,6 +106,7 @@ export default function Projects() {
       title: "Candidate Discovery Agent",
       badge: "Recruitment Automation",
       tagline: "Intelligent Candidate Discovery & Dynamic Ranking",
+      githubUrl: "https://github.com/lokeshh29/intelligent-candidate-agent",
       description:
         "AI recruitment system that analyzes job descriptions, candidate skills, and professional history, dynamically adjusting rankings based on activity signals and offer-acceptance likelihood.",
       featured: true,
@@ -179,6 +181,7 @@ export default function Projects() {
       title: "News Ranking Agent",
       badge: "LLM Content Analysis",
       tagline: "LLM-Powered News Ranking Platform",
+      githubUrl: "https://github.com/lokeshh29/news_ranking",
       description:
         "Real-time news exploration platform using Gemini 2.0 and LangChain to evaluate and rank articles across multidimensional metrics: relevance, sentiment, and factuality.",
       featured: true,

@@ -52,7 +52,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/lokeshhh29/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all"
@@ -63,7 +63,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/lokeshh29"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all"
@@ -77,6 +77,7 @@ export default function Contact() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              download="lokesh_resume.pdf"
               className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all"
             >
               <FileText className="h-4 w-4 text-indigo-400" />

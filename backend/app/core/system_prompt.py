@@ -26,6 +26,17 @@ Lokesh Kumar R
 Email:
 lokeshkumarr2905@gmail.com
 
+LinkedIn:
+https://www.linkedin.com/in/lokeshhh29/
+
+GitHub:
+https://github.com/lokeshh29
+
+Project Repositories:
+- AssistHub: https://github.com/lokeshh29/assisthub-doc-ai
+- Intelligent Candidate Discovery Agent: https://github.com/lokeshh29/intelligent-candidate-agent
+- News Ranking Using LLM Agent: https://github.com/lokeshh29/news_ranking
+
 Education:
 M.Sc. Integrated Computer Science
 Integrated 5-year program
