@@ -39,7 +39,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="font-display text-6xl sm:text-8xl lg:text-9xl font-extrabold tracking-[-3px] text-black dark:text-white leading-[1.02]"
+            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tight sm:tracking-[-3px] text-black dark:text-white leading-[1.05]"
           >
             Hi, I'm{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4e3f6e] via-[#7b689a] to-black dark:from-white dark:via-[#dbd5e7] dark:to-[#4e3f6e]">

@@ -34,7 +34,7 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -5 }}
-      className="glass-card rounded-3xl p-7 sm:p-10 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-2xl hover:shadow-[#4e3f6e]/10 group"
+      className="glass-card rounded-3xl p-5 sm:p-7 lg:p-10 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-2xl hover:shadow-[#4e3f6e]/10 group"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Left Column: Details, Tech, Actions */}
@@ -112,7 +112,7 @@ export default function ProjectCard({
         </div>
 
         {/* Right Column: Key Engineering Highlights Panel */}
-        <div className="lg:col-span-5 bg-neutral-50/90 dark:bg-[#120F1A]/90 border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div className="lg:col-span-5 bg-neutral-50/90 dark:bg-[#120F1A]/90 border border-neutral-200 dark:border-[#4e3f6e]/30 rounded-2xl p-5 sm:p-6 lg:p-8 space-y-4">
           <h4 className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             Key Engineering Highlights:
           </h4>

@@ -119,7 +119,7 @@ export default function Skills() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="glass-card rounded-3xl p-6 sm:p-8 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-xl hover:shadow-[#4e3f6e]/10"
+                className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-xl hover:shadow-[#4e3f6e]/10"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   {/* Category Header (Left: 4 cols) */}

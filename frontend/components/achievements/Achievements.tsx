@@ -60,7 +60,7 @@ export default function Achievements() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -6 }}
-                className="glass-card rounded-3xl p-7 sm:p-10 space-y-5 transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-2xl hover:shadow-[#4e3f6e]/10"
+                className="glass-card rounded-3xl p-5 sm:p-7 lg:p-10 space-y-5 transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-2xl hover:shadow-[#4e3f6e]/10"
               >
                 <div className="flex items-center justify-between">
                   <div

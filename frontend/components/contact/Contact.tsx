@@ -34,7 +34,7 @@ export default function Contact() {
           <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[#4e3f6e] dark:text-[#c4b7d8]">
             Get in Touch
           </span>
-          <h2 className="mt-3 font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold text-black dark:text-white tracking-tight leading-[1.08]">
+          <h2 className="mt-3 font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-black dark:text-white tracking-tight leading-[1.08]">
             Let's build intelligent systems together.
           </h2>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Sparkles, Menu, X, Terminal } from "lucide-react";
+import { Sparkles, Menu, X, Terminal, FileText } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
