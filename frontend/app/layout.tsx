@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Lokesh Kumar R | AI/ML Engineer",
@@ -30,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-[#07090E] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
-        {children}
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className="min-h-screen bg-[#FAFAFC] text-slate-900 dark:bg-[#07090E] dark:text-slate-100 antialiased selection:bg-sky-500/20 selection:text-sky-500 transition-colors duration-300">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

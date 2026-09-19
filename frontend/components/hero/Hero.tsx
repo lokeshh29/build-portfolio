@@ -20,13 +20,13 @@ export default function Hero({ onOpenChat }: HeroProps) {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Subtle Background Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-sky-400/10 dark:bg-sky-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-indigo-400/10 dark:bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-xs font-medium text-sky-400 mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-sky-300 dark:border-sky-500/30 bg-sky-50 dark:bg-sky-500/10 text-xs font-medium text-sky-700 dark:text-sky-400 mb-6 backdrop-blur-sm shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
@@ -35,20 +35,23 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-200 to-indigo-300">Lokesh.</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+            Hi, I'm{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 dark:from-sky-400 dark:via-sky-200 dark:to-indigo-300">
+              Lokesh.
+            </span>
           </h1>
 
           {/* Core Tagline */}
-          <h2 className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-200 tracking-tight leading-snug">
+          <h2 className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-slate-200 tracking-tight leading-snug">
             AI/ML Engineer building{" "}
-            <span className="text-sky-400">AI Agents</span>,{" "}
-            <span className="text-indigo-400">RAG systems</span> and{" "}
-            <span className="text-slate-100">cloud-native AI applications</span>.
+            <span className="text-sky-600 dark:text-sky-400">AI Agents</span>,{" "}
+            <span className="text-indigo-600 dark:text-indigo-400">RAG systems</span> and{" "}
+            <span className="text-slate-900 dark:text-slate-100">cloud-native AI applications</span>.
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl font-normal">
+          <p className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl font-normal">
             I design intelligent systems that combine LLMs, retrieval, agents, APIs, and cloud infrastructure.
           </p>
 
@@ -64,10 +67,10 @@ export default function Hero({ onOpenChat }: HeroProps) {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 transition-all hover:border-slate-600"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all hover:border-slate-400 dark:hover:border-slate-600 shadow-sm"
             >
               <span>View Projects</span>
-              <ArrowRight className="h-4 w-4 text-slate-400" />
+              <ArrowRight className="h-4 w-4 text-slate-500 dark:text-slate-400" />
             </a>
 
             <a
@@ -75,15 +78,15 @@ export default function Hero({ onOpenChat }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               download="lokesh_resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors group"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors group"
             >
-              <FileDown className="h-4 w-4 group-hover:text-sky-400 transition-colors" />
+              <FileDown className="h-4 w-4 text-slate-500 group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors" />
               <span>Download Resume</span>
             </a>
           </div>
 
           {/* Tech Pills Row */}
-          <div className="mt-10 pt-8 border-t border-slate-800/80">
+          <div className="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800/80">
             <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase mb-3">
               Core Technologies & Architecture
             </p>
@@ -91,7 +94,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-md text-xs font-medium text-slate-300 bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-colors"
+                  className="px-3 py-1 rounded-md text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm"
                 >
                   {tech}
                 </span>
@@ -100,13 +103,13 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </div>
 
           {/* Credential Badges */}
-          <div className="mt-6 flex flex-wrap gap-4 text-xs text-slate-400">
-            <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800/80 rounded-lg px-3 py-1.5">
-              <Briefcase className="h-3.5 w-3.5 text-sky-400" />
+          <div className="mt-6 flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-400">
+            <div className="flex items-center gap-2 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-lg px-3 py-1.5 shadow-sm">
+              <Briefcase className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
               <span>AI/ML Engineer Intern @ Invisibl Cloud</span>
             </div>
-            <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800/80 rounded-lg px-3 py-1.5">
-              <GraduationCap className="h-3.5 w-3.5 text-indigo-400" />
+            <div className="flex items-center gap-2 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-lg px-3 py-1.5 shadow-sm">
+              <GraduationCap className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
               <span>M.Sc. Integrated CS @ CEG, Anna University (2027)</span>
             </div>
           </div>

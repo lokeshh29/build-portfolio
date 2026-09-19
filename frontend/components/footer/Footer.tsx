@@ -1,16 +1,16 @@
 import React from "react";
-import { Terminal, Heart } from "lucide-react";
+import { Terminal } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800/80 bg-[#05070B] py-12 text-slate-400 text-xs">
+    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05070B] py-12 text-slate-600 dark:text-slate-400 text-xs transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <div className="h-7 w-7 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+          <div className="h-7 w-7 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-600 dark:text-sky-400">
             <Terminal className="h-3.5 w-3.5" />
           </div>
           <div>
-            <span className="font-semibold text-white">Lokesh Kumar R</span>
+            <span className="font-semibold text-slate-900 dark:text-white">Lokesh Kumar R</span>
             <span className="text-slate-500 ml-2">
               • AI/ML Engineer | AI Agents & RAG
             </span>
@@ -18,22 +18,22 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-6">
-          <a href="#about" className="hover:text-slate-200 transition-colors">
+          <a href="#about" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">
             About
           </a>
           <a
             href="#experience"
-            className="hover:text-slate-200 transition-colors"
+            className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
           >
             Experience
           </a>
-          <a href="#projects" className="hover:text-slate-200 transition-colors">
+          <a href="#projects" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">
             Projects
           </a>
-          <a href="#skills" className="hover:text-slate-200 transition-colors">
+          <a href="#skills" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">
             Skills
           </a>
-          <a href="#contact" className="hover:text-slate-200 transition-colors">
+          <a href="#contact" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">
             Contact
           </a>
         </div>
