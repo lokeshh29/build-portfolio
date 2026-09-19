@@ -38,50 +38,43 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-        {/* Brand with Syne Display font */}
-        <a
-          href="#"
-          className="group flex items-center gap-2.5 font-display text-xl sm:text-2xl font-extrabold tracking-tight text-black dark:text-white transition-colors shrink-0"
-        >
-          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 flex items-center justify-center text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:border-[#4e3f6e]/60 transition-all">
-            <Terminal className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
-          </div>
-          <span className="whitespace-nowrap">
-            Lokesh<span className="text-[#4e3f6e]">.</span>
-          </span>
-        </a>
+        {/* Brand (Left: flex-1 to balance right container) */}
+        <div className="flex-1 flex items-center justify-start">
+          <a
+            href="#"
+            className="group flex items-center gap-2.5 font-display text-xl sm:text-2xl font-extrabold tracking-tight text-black dark:text-white transition-colors"
+          >
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 flex items-center justify-center text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:border-[#4e3f6e]/60 transition-all">
+              <Terminal className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
+            </div>
+            <span className="whitespace-nowrap">
+              Lokesh<span className="text-[#4e3f6e]">.</span>
+            </span>
+          </a>
+        </div>
 
-        {/* Desktop Nav Links in JetBrains Mono style */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 font-mono text-xs xl:text-sm uppercase tracking-wider whitespace-nowrap">
+        {/* Desktop Nav Links (Center: balanced and never overlapping) */}
+        <nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-8 font-mono text-xs xl:text-sm uppercase tracking-wider xl:tracking-[0.16em] whitespace-nowrap shrink-0">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors font-medium"
+              className="text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors font-semibold py-1"
             >
               {link.name}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30 text-[#4e3f6e] hover:bg-[#4e3f6e] hover:text-white dark:text-[#c4b7d8] dark:hover:bg-[#4e3f6e] dark:hover:text-white transition-all font-semibold text-xs whitespace-nowrap"
-          >
-            <FileText className="h-3.5 w-3.5" />
-            <span>Resume</span>
-          </a>
         </nav>
 
-        {/* Right Actions & Theme Toggle */}
-        <div className="hidden md:flex items-center gap-2.5 xl:gap-3 shrink-0">
+        {/* Right Actions & Theme Toggle (Right: flex-1 flex justify-end) */}
+        <div className="hidden md:flex flex-1 items-center justify-end gap-3 xl:gap-4 shrink-0">
           <ThemeToggle />
 
           <button
             onClick={onOpenChat}
             className="group relative inline-flex items-center gap-2 px-3.5 py-1.5 xl:px-4 xl:py-2 rounded-xl font-mono text-xs xl:text-sm font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30 hover:bg-[#4e3f6e] hover:text-white transition-all shadow-sm whitespace-nowrap"
           >
-            <Sparkles className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:text-white group-hover:scale-110 transition-transform" />
+            <Sparkles className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:text-white group-hover:scale-110 transition-transform" />
             <span>Ask Lokesh AI</span>
           </button>
 
@@ -98,9 +91,9 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
           <ThemeToggle />
           <button
             onClick={onOpenChat}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
           >
-            <Sparkles className="h-3 w-3 text-[#4e3f6e] dark:text-[#c4b7d8]" />
+            <Sparkles className="h-3.5 w-3.5 text-[#4e3f6e] dark:text-[#c4b7d8]" />
             <span>AI</span>
           </button>
           <button
@@ -108,20 +101,20 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             className="p-1.5 rounded-lg text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-black/10 dark:border-[#4e3f6e]/30 px-6 py-5 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-black/10 dark:border-[#4e3f6e]/30 px-6 py-6 space-y-4 animate-in fade-in slide-in-from-top-4 duration-200 shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block font-mono text-xs uppercase tracking-wider text-black/80 dark:text-white/80 hover:text-[#4e3f6e] dark:hover:text-[#c4b7d8] py-1.5"
+              className="block font-mono text-sm sm:text-base uppercase tracking-[0.18em] text-neutral-800 dark:text-neutral-200 hover:text-[#4e3f6e] dark:hover:text-[#c4b7d8] py-2 font-semibold"
             >
               {link.name}
             </a>
@@ -131,18 +124,18 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#4e3f6e] dark:text-[#c4b7d8] py-1.5 font-semibold"
+            className="flex items-center gap-2 font-mono text-sm uppercase tracking-[0.18em] text-[#4e3f6e] dark:text-[#c4b7d8] py-2 font-semibold"
           >
             <FileText className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
             <span>Resume (PDF)</span>
           </a>
-          <div className="pt-3 border-t border-black/10 dark:border-neutral-800 flex flex-col gap-2">
+          <div className="pt-4 border-t border-black/10 dark:border-neutral-800 flex flex-col gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenChat?.();
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-mono text-xs font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-mono text-sm font-semibold text-[#4e3f6e] dark:text-[#dbd5e7] bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 border border-[#4e3f6e]/30"
             >
               <Sparkles className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8]" />
               <span>Ask Lokesh AI Assistant</span>
