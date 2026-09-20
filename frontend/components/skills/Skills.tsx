@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Code2,
   Server,
@@ -10,10 +10,27 @@ import {
   ShieldCheck,
   CheckCircle2,
   Briefcase,
+  Info,
 } from "lucide-react";
 
+interface SkillObject {
+  name: string;
+  description: string;
+}
+
+type SkillItem = string | SkillObject;
+
 export default function Skills() {
-  const skillCategories = [
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+
+  const skillCategories: {
+    title: string;
+    icon: React.ElementType;
+    color: string;
+    bgColor: string;
+    borderColor: string;
+    skills: SkillItem[];
+  }[] = [
     {
       title: "AI & LLM Engineering",
       icon: Cpu,
@@ -40,10 +57,26 @@ export default function Skills() {
       bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
       borderColor: "border-[#4e3f6e]/30",
       skills: [
-        "FinTech",
-        "Enterprise AI Applications",
-        "HR Technology",
-        "Recruitment Technology",
+        {
+          name: "FinTech",
+          description:
+            "Worked on AI/ML solutions at Invisibl Cloud for financial-services use cases, including financial document analysis and accurate information extraction.",
+        },
+        {
+          name: "Enterprise AI Systems",
+          description:
+            "Built AI agents, LLM workflows, backend APIs, and AWS-based applications for business use cases.",
+        },
+        {
+          name: "HR Technology",
+          description:
+            "Developed AssistHub, an AI-powered HR assistant for accessing company policies and internal information through a conversational interface.",
+        },
+        {
+          name: "Recruitment Technology",
+          description:
+            "Built an intelligent candidate discovery agent for candidate screening, scoring, and ranking using job descriptions, skills, and professional history.",
+        },
       ],
     },
     {
@@ -117,7 +150,7 @@ export default function Skills() {
             Skills & Competencies
           </h2>
           <p className="mt-4 font-body text-neutral-600 dark:text-neutral-300 text-lg sm:text-xl leading-relaxed">
-            Categorized technical capabilities spanning AI agents, RAG, backend engineering, cloud architecture, and AI governance.
+            Categorized technical capabilities spanning AI agents, RAG, backend engineering, cloud architecture, and domain expertise.
           </p>
         </motion.div>
 
@@ -132,7 +165,6 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={{ y: -4 }}
                 className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8 w-full transition-shadow duration-300 hover:border-[#4e3f6e]/60 hover:shadow-xl hover:shadow-[#4e3f6e]/10"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -155,17 +187,65 @@ export default function Skills() {
 
                   {/* Skills List (Right: 8 cols) as horizontal tags */}
                   <div className="lg:col-span-8 flex flex-wrap gap-2.5 sm:gap-3">
-                    {cat.skills.map((skill) => (
-                      <motion.span
-                        key={skill}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs sm:text-sm font-medium bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm hover:border-[#4e3f6e]/60 transition-colors cursor-default"
-                      >
-                        <CheckCircle2 className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
-                        <span>{skill}</span>
-                      </motion.span>
-                    ))}
+                    {cat.skills.map((skill) => {
+                      const name = typeof skill === "string" ? skill : skill.name;
+                      const description = typeof skill === "object" ? skill.description : undefined;
+                      const isActive = activeTooltip === name;
+
+                      return (
+                        <div key={name} className="relative group inline-block">
+                          <motion.button
+                            type="button"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                            onMouseEnter={() => description && setActiveTooltip(name)}
+                            onMouseLeave={() => setActiveTooltip(null)}
+                            onClick={() => {
+                              if (description) {
+                                setActiveTooltip(isActive ? null : name);
+                              }
+                            }}
+                            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs sm:text-sm font-medium transition-all text-left ${
+                              description
+                                ? "cursor-pointer bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 text-black dark:text-white border border-[#4e3f6e]/40 dark:border-[#4e3f6e]/60 shadow-md hover:border-[#4e3f6e] dark:hover:border-[#c4b7d8]"
+                                : "cursor-default bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm"
+                            }`}
+                          >
+                            <CheckCircle2 className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
+                            <span>{name}</span>
+                            {description && (
+                              <span className="relative flex h-2 w-2 ml-0.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4e3f6e] opacity-75 dark:bg-[#c4b7d8]"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4e3f6e] dark:bg-[#c4b7d8]"></span>
+                              </span>
+                            )}
+                          </motion.button>
+
+                          {/* Floating Tooltip Popover */}
+                          <AnimatePresence>
+                            {description && isActive && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                                transition={{ duration: 0.18, ease: "easeOut" }}
+                                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 sm:w-84 p-4 rounded-2xl bg-black/95 text-white border border-[#4e3f6e] shadow-2xl backdrop-blur-xl z-50 text-left pointer-events-none"
+                              >
+                                <div className="flex items-center gap-2 mb-1.5 font-display font-bold text-sm text-[#c4b7d8]">
+                                  <Info className="h-4 w-4 text-[#c4b7d8] shrink-0" />
+                                  <span>{name}</span>
+                                </div>
+                                <p className="font-body text-xs leading-relaxed text-neutral-200 font-normal">
+                                  {description}
+                                </p>
+                                {/* Popover Arrow */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] border-4 border-transparent border-t-black/95" />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>
