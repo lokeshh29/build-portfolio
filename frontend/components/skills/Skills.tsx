@@ -9,6 +9,7 @@ import {
   Cloud,
   ShieldCheck,
   CheckCircle2,
+  Briefcase,
 } from "lucide-react";
 
 export default function Skills() {
@@ -30,6 +31,19 @@ export default function Skills() {
         "Prompt Engineering",
         "Hallucination Mitigation",
         "Guardrails",
+      ],
+    },
+    {
+      title: "Domain Experience",
+      icon: Briefcase,
+      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+      borderColor: "border-[#4e3f6e]/30",
+      skills: [
+        "FinTech",
+        "Enterprise AI Applications",
+        "HR Technology",
+        "Recruitment Technology",
       ],
     },
     {

@@ -277,6 +277,13 @@ Cloud and DevOps:
 - AWS CloudFormation
 - CI/CD
 
+Domain Experience:
+
+- FinTech
+- Enterprise AI Applications
+- HR Technology
+- Recruitment Technology
+
 AI Security and Governance:
 
 - Prompt Injection Defense
