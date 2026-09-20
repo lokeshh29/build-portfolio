@@ -56,6 +56,19 @@ export default function ChatWidget({
   };
 
   useEffect(() => {
+    if (activeOpen && typeof window !== "undefined" && window.innerWidth < 640) {
+      document.body.style.overflow = "hidden";
+    } else if (typeof window !== "undefined") {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "";
+      }
+    };
+  }, [activeOpen]);
+
+  useEffect(() => {
     if (activeOpen) {
       setTimeout(() => inputRef.current?.focus(), 150);
     }
@@ -139,46 +152,51 @@ export default function ChatWidget({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setInternalOpen(true)}
-            className="fixed bottom-6 right-6 z-40 group flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-[#4e3f6e] text-white shadow-xl shadow-[#4e3f6e]/35 hover:bg-[#3e3258] transition-colors font-mono text-sm sm:text-base font-semibold"
+            className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 group flex items-center gap-2.5 px-4.5 py-3 sm:px-5 sm:py-3.5 rounded-full bg-[#4e3f6e] text-white shadow-xl shadow-[#4e3f6e]/35 hover:bg-[#3e3258] transition-colors font-mono text-xs sm:text-base font-semibold"
             aria-label="Open AI Assistant"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
             </span>
-            <Sparkles className="h-4.5 w-4.5 text-[#c4b7d8] group-hover:rotate-12 transition-transform" />
+            <Sparkles className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-[#c4b7d8] group-hover:rotate-12 transition-transform" />
             <span>Ask Lokesh AI</span>
           </motion.button>
         )}
 
-        {/* Slide-out Panel / Mobile Full-Screen Modal */}
+        {/* Full Mobile Screen Sheet / Desktop Floating Panel */}
         {activeOpen && (
           <motion.div
             key="chat-panel"
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[450px] sm:h-[620px] z-50 flex flex-col bg-white dark:bg-black border border-neutral-200 dark:border-[#4e3f6e]/30 sm:rounded-3xl shadow-2xl shadow-black/10 dark:shadow-black/80 overflow-hidden"
+            className="fixed inset-0 h-[100dvh] w-full sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[450px] sm:h-[620px] sm:max-h-[85vh] z-50 flex flex-col bg-white dark:bg-black border-0 sm:border border-neutral-200 dark:border-[#4e3f6e]/30 sm:rounded-3xl shadow-2xl shadow-black/20 dark:shadow-black/90 overflow-hidden"
           >
+            {/* Mobile Touch Drag Indicator */}
+            <div className="sm:hidden pt-2 pb-0 flex justify-center bg-neutral-50 dark:bg-[#120F1A]">
+              <div className="w-10 h-1 bg-neutral-300 dark:bg-neutral-700 rounded-full" />
+            </div>
+
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-200 dark:border-[#4e3f6e]/30 bg-neutral-50/90 dark:bg-[#120F1A]/90 backdrop-blur-md">
+            <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 sm:py-4 border-b border-neutral-200 dark:border-[#4e3f6e]/30 bg-neutral-50/90 dark:bg-[#120F1A]/90 backdrop-blur-md shrink-0">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 flex items-center justify-center text-[#4e3f6e] dark:text-[#c4b7d8]">
+                <div className="h-9 w-9 rounded-xl bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25 border border-[#4e3f6e]/30 flex items-center justify-center text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0">
                   <Sparkles className="h-4.5 w-4.5" />
                 </div>
                 <div>
-                  <h3 className="font-display text-base font-bold text-black dark:text-white flex items-center gap-2">
+                  <h3 className="font-display text-sm sm:text-base font-bold text-black dark:text-white flex items-center gap-2">
                     Ask Lokesh AI
                     <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
                   </h3>
-                  <p className="font-mono text-xs text-neutral-500">
+                  <p className="font-mono text-[11px] sm:text-xs text-neutral-500">
                     Portfolio Intelligence Assistant
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1">
                 <button
                   onClick={handleClearChat}
                   className="p-2 rounded-lg text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
@@ -196,8 +214,8 @@ export default function ChatWidget({
               </div>
             </div>
 
-            {/* Conversation Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm sm:text-base bg-neutral-50/50 dark:bg-transparent font-body">
+            {/* Conversation Messages Container */}
+            <div className="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-4 text-sm sm:text-base bg-neutral-50/50 dark:bg-transparent font-body overscroll-contain">
               {messages.map((msg, idx) => (
                 <ChatMessage
                   key={idx}
@@ -240,8 +258,8 @@ export default function ChatWidget({
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Box */}
-            <div className="p-3.5 border-t border-neutral-200 dark:border-[#4e3f6e]/30 bg-white dark:bg-black">
+            {/* Mobile-Friendly Input Box (text-base prevents iOS Safari zoom) */}
+            <div className="p-3 sm:p-3.5 border-t border-neutral-200 dark:border-[#4e3f6e]/30 bg-white dark:bg-black shrink-0">
               <div className="relative flex items-center">
                 <input
                   ref={inputRef}
@@ -252,11 +270,11 @@ export default function ChatWidget({
                   placeholder={
                     isStreaming
                       ? "Generating answer..."
-                      : "Ask anything about Lokesh's portfolio..."
+                      : "Ask anything about Lokesh..."
                   }
                   disabled={isStreaming}
                   maxLength={500}
-                  className="w-full pl-4 pr-11 py-3 rounded-xl bg-neutral-50 dark:bg-[#120F1A] border border-neutral-200 dark:border-[#4e3f6e]/30 text-sm sm:text-base text-black dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-[#4e3f6e]/60 disabled:opacity-60 font-body"
+                  className="w-full pl-4 pr-11 py-3 rounded-xl bg-neutral-50 dark:bg-[#120F1A] border border-neutral-200 dark:border-[#4e3f6e]/30 text-base sm:text-sm text-black dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-[#4e3f6e]/60 disabled:opacity-60 font-body"
                 />
                 <button
                   onClick={() => handleSendMessage()}
@@ -271,7 +289,7 @@ export default function ChatWidget({
                   )}
                 </button>
               </div>
-              <p className="mt-2 font-mono text-[11px] sm:text-xs text-center text-neutral-500">
+              <p className="mt-2 font-mono text-[10px] sm:text-xs text-center text-neutral-500">
                 Grounded exclusively in Lokesh's verified portfolio knowledge.
               </p>
             </div>

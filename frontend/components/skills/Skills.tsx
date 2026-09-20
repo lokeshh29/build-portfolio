@@ -227,7 +227,7 @@ export default function Skills() {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: 8, scale: 0.95 }}
                                 transition={{ duration: 0.18, ease: "easeOut" }}
-                                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 sm:w-84 p-4 rounded-2xl bg-black/95 text-white border border-[#4e3f6e] shadow-2xl backdrop-blur-xl z-50 text-left pointer-events-none"
+                                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[84vw] max-w-[320px] sm:w-84 p-4 rounded-2xl bg-black/95 text-white border border-[#4e3f6e] shadow-2xl backdrop-blur-xl z-50 text-left pointer-events-none"
                               >
                                 <div className="flex items-center gap-2 mb-1.5 font-display font-bold text-sm text-[#c4b7d8]">
                                   <Info className="h-4 w-4 text-[#c4b7d8] shrink-0" />
