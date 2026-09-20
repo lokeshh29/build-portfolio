@@ -103,7 +103,6 @@ export default function Contact() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download="lokesh_resume.pdf"
               className="inline-flex items-center gap-2.5 px-6 py-4 rounded-2xl font-mono text-base sm:text-lg font-semibold text-black dark:text-white bg-white hover:bg-neutral-100 dark:bg-black dark:hover:bg-neutral-900 border border-neutral-300 dark:border-[#4e3f6e]/30 transition-colors shadow-sm"
             >
               <FileText className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8]" />

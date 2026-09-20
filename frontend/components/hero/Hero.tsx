@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ArrowRight, FileDown, Briefcase, GraduationCap } from "lucide-react";
+import { Sparkles, ArrowRight, FileText, Briefcase, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroProps {
@@ -103,11 +103,10 @@ export default function Hero({ onOpenChat }: HeroProps) {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download="lokesh_resume.pdf"
               className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm sm:text-base font-medium font-mono text-[#4e3f6e] dark:text-[#c4b7d8] hover:text-black dark:hover:text-white transition-colors group"
             >
-              <FileDown className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:scale-110 transition-transform" />
-              <span>Download Resume</span>
+              <FileText className="h-5 w-5 text-[#4e3f6e] dark:text-[#c4b7d8] group-hover:scale-110 transition-transform" />
+              <span>View Resume</span>
             </motion.a>
           </motion.div>
 
