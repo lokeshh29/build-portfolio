@@ -31,107 +31,106 @@ export default function Skills() {
     borderColor: string;
     skills: SkillItem[];
   }[] = [
-    {
-      title: "AI & LLM Engineering",
-      icon: Cpu,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: [
-        "Retrieval-Augmented Generation (RAG)",
-        "AI Agents",
-        "Multi-Agent Orchestration",
-        "Burr",
-        "Tool Calling & Function Calling",
-        "Strands AgentCore",
-        "LangChain",
-        "Prompt Engineering",
-        "Hallucination Mitigation",
-        "Guardrails",
-      ],
-    },
-    {
-      title: "Domain Experience",
-      icon: Briefcase,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: [
-        {
-          name: "FinTech",
-          description:
-            "Worked on AI/ML solutions at Invisibl Cloud for financial-services use cases, including financial document analysis and accurate information extraction.",
-        },
-        {
-          name: "Enterprise AI Systems",
-          description:
-            "Built AI agents, LLM workflows, backend APIs, and AWS-based applications for business use cases.",
-        },
-        {
-          name: "HR Technology",
-          description:
-            "Developed AssistHub, an AI-powered HR assistant for accessing company policies and internal information through a conversational interface.",
-        },
-        {
-          name: "Recruitment Technology",
-          description:
-            "Built an intelligent candidate discovery agent for candidate screening, scoring, and ranking using job descriptions, skills, and professional history.",
-        },
-      ],
-    },
-    {
-      title: "Backend & APIs",
-      icon: Server,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: [
-        "FastAPI",
-        "REST APIs",
-        "Pydantic (Data Validation)",
-        "Async Python (asyncio)",
-        "Microservices Architecture",
-      ],
-    },
-    {
-      title: "Cloud & DevOps",
-      icon: Cloud,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: [
-        "AWS Bedrock",
-        "AWS S3 & Knowledge Bases",
-        "AWS Lambda",
-        "AWS API Gateway",
-        "AWS AgentCore & IAM",
-        "AWS CloudFormation",
-        "Docker & DockerHub",
-        "CI/CD Pipelines",
-      ],
-    },
-    {
-      title: "Programming Languages",
-      icon: Code2,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: ["Python", "Java", "JavaScript", "HTML", "CSS"],
-    },
-    {
-      title: "AI Security & Governance",
-      icon: ShieldCheck,
-      color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
-      bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
-      borderColor: "border-[#4e3f6e]/30",
-      skills: [
-        "Prompt Injection Defense",
-        "PII Redaction",
-        "Audit Logging",
-        "Model Scope & Guardrails",
-      ],
-    },
-  ];
+      {
+        title: "AI & LLM Engineering",
+        icon: Cpu,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: [
+          "Retrieval-Augmented Generation (RAG)",
+          "AI Agents",
+          "Multi-Agent Orchestration",
+          "Burr",
+          "Tool Calling & Function Calling",
+          "Strands AgentCore",
+          "LangChain",
+          "Prompt Engineering",
+          "Hallucination Mitigation",
+        ],
+      },
+      {
+        title: "Domain Experience",
+        icon: Briefcase,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: [
+          {
+            name: "FinTech",
+            description:
+              "Worked on AI/ML solutions at Invisibl Cloud for financial-services use cases, including financial document analysis and accurate information extraction.",
+          },
+          {
+            name: "Enterprise AI Systems",
+            description:
+              "Built AI agents, LLM workflows, backend APIs, and AWS-based applications for business use cases.",
+          },
+          {
+            name: "HR Technology",
+            description:
+              "Developed AssistHub, an AI-powered HR assistant for accessing company policies and internal information through a conversational interface.",
+          },
+          {
+            name: "Recruitment Technology",
+            description:
+              "Built an intelligent candidate discovery agent for candidate screening, scoring, and ranking using job descriptions, skills, and professional history.",
+          },
+        ],
+      },
+      {
+        title: "Backend & APIs",
+        icon: Server,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: [
+          "FastAPI",
+          "REST APIs",
+          "Pydantic (Data Validation)",
+          "Async Python (asyncio)",
+          "Microservices Architecture",
+        ],
+      },
+      {
+        title: "Cloud & DevOps",
+        icon: Cloud,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: [
+          "AWS Bedrock",
+          "AWS S3 & Knowledge Bases",
+          "AWS Lambda",
+          "AWS API Gateway",
+          "AWS IAM",
+          "AWS CloudFormation",
+          "Docker & DockerHub",
+          "CI/CD Pipelines",
+        ],
+      },
+      {
+        title: "Programming Languages",
+        icon: Code2,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: ["Python", "Java", "JavaScript", "HTML", "CSS"],
+      },
+      {
+        title: "AI Security & Governance",
+        icon: ShieldCheck,
+        color: "text-[#4e3f6e] dark:text-[#c4b7d8]",
+        bgColor: "bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/25",
+        borderColor: "border-[#4e3f6e]/30",
+        skills: [
+          "Prompt Injection Defense",
+          "PII Redaction",
+          "Audit Logging",
+          "Model Scope & Guardrails",
+        ],
+      },
+    ];
 
   return (
     <section id="skills" className="py-28 border-t border-black/10 dark:border-[#4e3f6e]/30">
@@ -205,11 +204,10 @@ export default function Skills() {
                                 setActiveTooltip(isActive ? null : name);
                               }
                             }}
-                            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs sm:text-sm font-medium transition-all text-left ${
-                              description
-                                ? "cursor-pointer bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 text-black dark:text-white border border-[#4e3f6e]/40 dark:border-[#4e3f6e]/60 shadow-md hover:border-[#4e3f6e] dark:hover:border-[#c4b7d8]"
-                                : "cursor-default bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm"
-                            }`}
+                            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs sm:text-sm font-medium transition-all text-left ${description
+                              ? "cursor-pointer bg-[#4e3f6e]/10 dark:bg-[#4e3f6e]/20 text-black dark:text-white border border-[#4e3f6e]/40 dark:border-[#4e3f6e]/60 shadow-md hover:border-[#4e3f6e] dark:hover:border-[#c4b7d8]"
+                              : "cursor-default bg-white dark:bg-black text-black dark:text-white border border-neutral-200 dark:border-[#4e3f6e]/30 shadow-sm"
+                              }`}
                           >
                             <CheckCircle2 className="h-4 w-4 text-[#4e3f6e] dark:text-[#c4b7d8] shrink-0" />
                             <span>{name}</span>
